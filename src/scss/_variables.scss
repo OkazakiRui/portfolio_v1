@@ -1,0 +1,235 @@
+// 色系統
+$black1: #110e17;
+$black2: #14121c;
+$black3: #1a1526;
+$white1: #f2f2f2;
+$pink1: #f858f1;
+$gray1: #988e9f;
+$red1: #ff6480;
+
+// 文字色
+.c-p {
+  color: $pink1;
+}
+.c-g {
+  color: $gray1;
+}
+.c-r {
+  color: $red1;
+}
+.c-t {
+  color: transparent;
+}
+
+// flex
+.flex {
+  display: flex;
+}
+.f-ali {
+  display: flex;
+  align-items: center;
+}
+.f-jus {
+  display: flex;
+  justify-content: center;
+}
+.f-cen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.f-bet {
+  display: flex;
+  justify-content: space-between;
+}
+.f-aro {
+  display: flex;
+  justify-content: space-around;
+}
+.f-alibet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// position
+.p-re {
+  position: relative;
+}
+.p-ab {
+  position: absolute;
+}
+.p-fi {
+  position: fixed;
+}
+
+// layout
+.contentWrap {
+  width: 868px;
+  margin: 0 auto;
+  padding: 75px 22px;
+}
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+// margin
+.mar {
+  margin: 0 auto;
+}
+
+// font
+.font {
+  font-family: "Roboto Mono", monospace;
+}
+
+// code
+#code {
+  .codeWrap {
+    position: relative;
+    &:hover {
+      background-color: #1a1526;
+      cursor: default;
+    }
+    .code {
+      display: block;
+      width: 868px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+  }
+
+  .code-class {
+    color: #3691ff;
+  }
+  .code-className {
+    color: #ff6480;
+  }
+  .code-string {
+    color: #f9c859;
+  }
+  .code-number {
+    color: #ff78f8;
+  }
+  .code-methods {
+    color: #3fc56b;
+  }
+  .code-brackets {
+    color: #7a82da;
+  }
+  .code-property {
+    color: #ce9887;
+  }
+}
+
+// header Nav
+.lookingSection {
+  color: $white1;
+  transition: color 0.5s;
+  span {
+    color: $pink1;
+  }
+}
+
+// movement bg
+@keyframes move-bg {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  40%,
+  60% {
+    transform: translate(0%, 0);
+  }
+  100% {
+    transform: translate(101%, 0);
+  }
+}
+
+@keyframes move-color-white {
+  0%,
+  30% {
+    color: transparent;
+  }
+  100% {
+    color: $white1;
+  }
+}
+@keyframes move-color-pink {
+  0%,
+  30% {
+    color: transparent;
+  }
+  100% {
+    color: $pink1;
+  }
+}
+@keyframes move-color-gray {
+  0%,
+  30% {
+    color: transparent;
+  }
+  100% {
+    color: $gray1;
+  }
+}
+
+.mv-bg {
+  display: table;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $pink1;
+    transform: translate(100%, 0);
+  }
+}
+.is-animation::after {
+  animation-name: move-bg;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+.mv-w {
+  animation-name: move-color-white;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+.mv-p {
+  animation-name: move-color-pink;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+.mv-g {
+  animation-name: move-color-gray;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+
+.delay1 {
+  animation-delay: 0.2s;
+  &::after {
+    animation-delay: 0.2s;
+  }
+}
+.delay2 {
+  animation-delay: 0.4s;
+  &::after {
+    animation-delay: 0.4s;
+  }
+}
+.delay3 {
+  animation-delay: 0.6s;
+  &::after {
+    animation-delay: 0.6s;
+  }
+}
