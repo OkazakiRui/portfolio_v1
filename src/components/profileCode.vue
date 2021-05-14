@@ -15,7 +15,6 @@ export default {
     this.age = 19;
     this.birthday = "2002年02月06日";
     this.live = "Kobe";
-    this.phoneNumber = "080-4768-2600";
     this.email = "okazaki200226@gmail.com";
   }
   programmingLanguage() {
@@ -76,6 +75,12 @@ export default {
       );
       return afterCode;
     },
+  },
+  mounted() {
+    const codeWrap = document.querySelectorAll(".codeWrap");
+    codeWrap.forEach((element, index) => {
+      element.setAttribute("data-value", index + 1);
+    });
   },
 };
 </script>

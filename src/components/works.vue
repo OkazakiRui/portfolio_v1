@@ -14,11 +14,14 @@
           "
         >
           <work :workLogo="work.logo"></work>
-          <work-window
-            v-if="displayWindow === index"
-            :workData="work"
-            @closeWindow="closeWindow"
-          ></work-window>
+
+          <transition name="fade">
+            <work-window
+              v-show="displayWindow === index"
+              :workData="work"
+              @closeWindow="closeWindow"
+            ></work-window>
+          </transition>
         </div>
       </div>
     </div>
@@ -26,19 +29,19 @@
 </template>
 
 <script>
-import workWindow from "@/components/workWindow.vue";
-
-import headingTitle from "@/components/headingTitle.vue";
 import background from "@/components/background.vue";
+import headingTitle from "@/components/headingTitle.vue";
 import work from "@/components/work.vue";
+import workWindow from "@/components/workWindow.vue";
 export default {
   data() {
     return {
       works: {
         innerPeaceCafe: {
           title: "InnerPeaceCafe",
-          concept: "肌トラブルの改善をコンセプトにしたカフェサイト。",
-          motivation: "初めて作ったwebサイト",
+          concept:
+            "InnerPeaceCafeは女子大生の悩みである肌トラブルを解決するために作られたカフェです。<br>一人一人に寄り添いその人にあったメニューを提供することが出来ます。",
+          motivation: "HTML, CSSを勉強し、初めて作成したwebサイトです。",
           production: "個人制作",
           position: "Planning, Design, FrontEnd",
           usetime: 60,
@@ -52,8 +55,9 @@ export default {
         nomino: {
           title: "nomino",
           concept:
-            "要らないものを最小限の手間で欲しい人に買って貰い、面倒な作業は全て買い手におまかせ。<br> 買い手の手間を最小限にした。面倒臭いがないフリマアプリ。",
-          motivation: "vuejsを使った初めてのアプリケーション",
+            "nominoは売り手の手間を最小限にした。面倒臭いがないフリマアプリです。<br>買い手がすぐ見つかり従来のフリマアプリとは違いスピーディーな取引が可能です。",
+          motivation:
+            "vuejsの勉強のために作成した初めてのスマートフォン向けwebアプリケーションです。",
           production: "個人制作",
           position: "Planning, Design, FrontEnd",
           usetime: 16,
@@ -66,9 +70,9 @@ export default {
         spark: {
           title: "Spark",
           concept:
-            "Sparkはビジネスではなく、オンライン呑み会などカジュアルにビデオ通話をするための新しいツールです。無言が続くと画面にエフェクトが起こったり、豊富なスタンプが特徴的です。",
+            "Sparkはビジネスではなく、オンライン呑み会などカジュアルにビデオ通話をするための新しいツールです。<br>無言が続くと画面にエフェクトが起こったり、豊富なスタンプが特徴的です。",
           motivation:
-            "Yahoo!さん主催のハッカソン、Open HackU 2020 Volume3にて優秀賞を頂きました。",
+            "Yahoo!さん主催のハッカソン、OpenHackU2020 Volume3で作成し、優秀賞を頂きました。",
           production: "グループ制作",
           position: "Planning, FrontEnd",
           usetime: "30",
@@ -104,5 +108,13 @@ export default {
     gap: 60px;
     padding: 50px 60px;
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
