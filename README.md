@@ -1,6 +1,6 @@
 # portfolio
 
-岡崎流依のポートフォリオです。
+
 
 ## Project setup
 
